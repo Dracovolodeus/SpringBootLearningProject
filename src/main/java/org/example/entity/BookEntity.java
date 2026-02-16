@@ -15,7 +15,7 @@ import lombok.*;
 public class BookEntity {
     public static final String TABLE_NAME = "book";
     public static final String COLUMN_ID_NAME = "id";
-    public static final String COLUMN_YEAR_NAME = "year";
+    public static final String COLUMN_YEAR_NAME = "publish_year";
     public static final String COLUMN_NAME_NAME = "name";
     public static final String COLUMN_DESCRIPTION_NAME = "description";
     public static final String COLUMN_AUTHOR_NAME = "author_id";
