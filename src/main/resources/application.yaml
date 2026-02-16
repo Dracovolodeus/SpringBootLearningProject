@@ -1,0 +1,17 @@
+server:
+  port: 8000
+
+spring:
+  jpa:
+    generate-ddl: false
+    show-sql: true
+
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/database
+    username: admin
+    password: passwd
+    driver-class-name: org.postgresql.Driver
+
+  liquibase:
+    enabled: true
+    change-log: classpath:db.changelog/rootChangeLog.xml

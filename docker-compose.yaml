@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: "postgres:16-alpine"
+    environment:
+      POSTGRES_DB: "database"
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "passwd"
+      PGDATA: "/var/libpostgresql/data/pgdata"
+
+    volumes:
+      - ./:/var/lib/postgresql/data
+
+    ports:
+      - "5432:5432"
