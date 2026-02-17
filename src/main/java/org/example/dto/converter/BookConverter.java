@@ -10,8 +10,9 @@ public class BookConverter {
         return BookDto.builder()
                 .id(book.getId())
                 .name(book.getName())
+                .year(book.getYear())
                 .description(book.getDescription())
-                .author(book.getAuthor())
+                .author(AuthorConverter.toDto(book.getAuthor()))
                 .build();
     }
 
@@ -21,7 +22,7 @@ public class BookConverter {
                 .name(book.getName())
                 .description(book.getDescription())
                 .year(book.getYear())
-                .author(book.getAuthor())
+                .author(AuthorConverter.toEntity(book.getAuthor()))
                 .build();
     }
 }

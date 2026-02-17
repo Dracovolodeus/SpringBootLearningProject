@@ -22,7 +22,7 @@ import java.util.List;
 public class BookController {
     private BookServiceIntr bookService;
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}/")
     @ResponseStatus(HttpStatus.OK)
     public BookDto getById(@PathVariable long id) throws NotFoundException, InvalidArgumentException {
         return bookService.get(id);
@@ -44,7 +44,7 @@ public class BookController {
         bookService.update(book);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}/")
     public void deleteBook(@PathVariable long id) {
         bookService.delete(id);
     }

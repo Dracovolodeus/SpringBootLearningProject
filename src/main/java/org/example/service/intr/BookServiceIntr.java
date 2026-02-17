@@ -3,7 +3,6 @@ package org.example.service.intr;
 import org.example.dto.model.program.BookDto;
 import org.example.dto.model.request.BookCreateDto;
 import org.example.dto.model.request.BookUpdateDto;
-import org.example.entity.BookEntity;
 import org.example.exception.InvalidArgumentException;
 import org.example.exception.NotFoundException;
 
