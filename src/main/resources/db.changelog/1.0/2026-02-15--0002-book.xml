@@ -31,7 +31,6 @@
 
             <column name="author_id" type="BIGINT">
                 <constraints
-                        nullable="true"
                         foreignKeyName="fk_book_author"
                         referencedTableName="author"
                         referencedColumnNames="id"
@@ -39,5 +38,48 @@
                 />
             </column>
         </createTable>
+
+        <insert tableName="book">
+            <column name="name">FirstBookName</column>
+            <column name="description">DescriptionForFirstBook!</column>
+            <column name="publish_year">2020</column>
+            <column name="author_id">1</column>
+        </insert>
+
+        <insert tableName="book">
+            <column name="name">SecondBookName</column>
+            <column name="description">DescriptionForSecondBook!</column>
+            <column name="publish_year">2026</column>
+            <column name="author_id">2</column>
+        </insert>
+
+        <insert tableName="book">
+            <column name="name">ThirdBookName</column>
+            <column name="description">DescriptionForThirdBook!</column>
+            <column name="publish_year">2021</column>
+            <column name="author_id">2</column>
+        </insert>
+
+        <insert tableName="book">
+            <column name="name">FourthBookName</column>
+            <column name="description">DescriptionForFourthBook!</column>
+            <column name="publish_year">2000</column>
+            <column name="author_id">3</column>
+        </insert>
+
+        <insert tableName="book">
+            <column name="name">FifthBookName</column>
+            <column name="description">DescriptionForFifthBook!</column>
+            <column name="publish_year">2010</column>
+            <column name="author_id">4</column>
+        </insert>
+
+        <insert tableName="book">
+            <column name="name">SixthBookName</column>
+            <column name="description">DescriptionForSixthBook!</column>
+            <column name="publish_year">1983</column>
+            <column name="author_id">5</column>
+        </insert>
+
     </changeSet>
 </databaseChangeLog>

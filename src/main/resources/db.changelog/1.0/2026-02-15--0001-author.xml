@@ -25,5 +25,26 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+
+        <insert tableName="author">
+            <column name="name">FirstAuthorName</column>
+        </insert>
+
+        <insert tableName="author">
+            <column name="name">SecondAuthorName</column>
+        </insert>
+
+        <insert tableName="author">
+            <column name="name">ThirdAuthorName</column>
+        </insert>
+
+        <insert tableName="author">
+            <column name="name">FourthAuthorName</column>
+        </insert>
+
+        <insert tableName="author">
+            <column name="name">FifthAuthorName</column>
+        </insert>
+
     </changeSet>
 </databaseChangeLog>
