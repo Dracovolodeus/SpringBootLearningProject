@@ -2,9 +2,9 @@ package org.example.service.impl;
 
 import lombok.AllArgsConstructor;
 import org.example.dto.converter.BookConverter;
-import org.example.dto.model.program.BookDto;
-import org.example.dto.model.request.BookCreateDto;
-import org.example.dto.model.request.BookUpdateDto;
+import org.example.dto.model.book.BookDto;
+import org.example.dto.model.book.BookCreateDto;
+import org.example.dto.model.book.BookUpdateDto;
 import org.example.entity.AuthorEntity;
 import org.example.entity.BookEntity;
 import org.example.exception.InvalidArgumentException;

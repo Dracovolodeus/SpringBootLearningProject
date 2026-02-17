@@ -1,7 +1,7 @@
 package org.example.dto.converter;
 
 import lombok.experimental.UtilityClass;
-import org.example.dto.model.program.AuthorDto;
+import org.example.dto.model.author.AuthorDto;
 import org.example.entity.AuthorEntity;
 
 @UtilityClass

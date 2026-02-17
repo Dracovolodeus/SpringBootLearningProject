@@ -1,9 +1,9 @@
 package org.example.service;
 
-import org.example.dto.model.program.AuthorDto;
-import org.example.dto.model.program.BookDto;
-import org.example.dto.model.request.AuthorCreateDto;
-import org.example.dto.model.request.AuthorUpdateDto;
+import org.example.dto.model.author.AuthorDto;
+import org.example.dto.model.book.BookDto;
+import org.example.dto.model.author.AuthorCreateDto;
+import org.example.dto.model.author.AuthorUpdateDto;
 import org.example.exception.NotFoundException;
 
 import java.util.List;

@@ -1,15 +1,15 @@
-package org.example.dto.model.request;
+package org.example.dto.model.author;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuthorCreateDto {
+public class AuthorDto {
+    private long id;
     private String name;
 }

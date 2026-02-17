@@ -2,7 +2,7 @@ package org.example.service.impl;
 
 import lombok.AllArgsConstructor;
 import org.example.dto.converter.UserConverter;
-import org.example.dto.model.program.UserDto;
+import org.example.dto.model.user.UserDto;
 import org.example.exception.NotFoundException;
 import org.example.repository.UserRepository;
 import org.example.service.UserService;
