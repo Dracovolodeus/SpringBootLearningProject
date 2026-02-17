@@ -52,10 +52,11 @@ public class AuthorServiceImpl implements AuthorServiceIntr {
     }
 
     @Override
-    public void update(AuthorUpdateDto authorDto) throws NotFoundException {
+    public AuthorDto update(AuthorUpdateDto authorDto) throws NotFoundException {
         AuthorEntity author = authorRepository.findById(authorDto.getId()).orElseThrow(() -> new NotFoundException("Author with id " + authorDto.getId() + " not found."));
         author.setName(authorDto.getName());
         authorRepository.save(author);
+        return AuthorConverter.toDto(author);
     }
 
     @Override

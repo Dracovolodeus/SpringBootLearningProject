@@ -16,7 +16,7 @@ public interface BookServiceIntr {
 
     public BookDto create(BookCreateDto book) throws NotFoundException, InvalidArgumentException;
 
-    public void update(BookUpdateDto book) throws NotFoundException;
+    public BookDto update(BookUpdateDto book) throws NotFoundException;
 
     public void delete(long id) throws NotFoundException;
 }

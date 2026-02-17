@@ -40,8 +40,8 @@ public class BookController {
     }
 
     @PutMapping("/")
-    public void updateBook(BookUpdateDto book) {
-        bookService.update(book);
+    public BookDto updateBook(BookUpdateDto book) {
+        return bookService.update(book);
     }
 
     @DeleteMapping("/{id}/")

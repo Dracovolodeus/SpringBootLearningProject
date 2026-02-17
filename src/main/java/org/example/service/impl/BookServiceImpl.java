@@ -52,7 +52,7 @@ public class BookServiceImpl implements BookServiceIntr {
     }
 
     @Override
-    public void update(BookUpdateDto bookDto) throws NotFoundException {
+    public BookDto update(BookUpdateDto bookDto) throws NotFoundException {
         BookEntity book = bookRepository.findById(bookDto.getId()).orElseThrow(() -> new NotFoundException("Book with id " + bookDto.getId() + " not found."));
         if (bookDto.getAuthorId() != book.getAuthor().getId())
             book.setAuthor(authorRepository.findById(bookDto.getAuthorId()).orElseThrow(() -> new NotFoundException("Author with id " + bookDto.getAuthorId() + " not found.")));
@@ -60,6 +60,7 @@ public class BookServiceImpl implements BookServiceIntr {
         book.setDescription(bookDto.getDescription());
         book.setYear(bookDto.getYear());
         bookRepository.save(book);
+        return BookConverter.toDto(book);
     }
 
     @Override

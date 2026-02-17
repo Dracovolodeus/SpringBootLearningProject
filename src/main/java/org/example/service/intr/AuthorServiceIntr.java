@@ -18,7 +18,7 @@ public interface AuthorServiceIntr {
 
     public AuthorDto create(AuthorCreateDto authorDto);
 
-    public void update(AuthorUpdateDto authorDto) throws NotFoundException;
+    public AuthorDto update(AuthorUpdateDto authorDto) throws NotFoundException;
 
     public void delete(long id) throws NotFoundException;
 }

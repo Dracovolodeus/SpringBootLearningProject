@@ -38,8 +38,8 @@ public class AuthorController {
     }
 
     @PutMapping("/")
-    public void update(AuthorUpdateDto authorUpdateDto) {
-        authorService.update(authorUpdateDto);
+    public AuthorDto update(AuthorUpdateDto authorUpdateDto) {
+        return authorService.update(authorUpdateDto);
     }
 
     @DeleteMapping("/{id}/")
