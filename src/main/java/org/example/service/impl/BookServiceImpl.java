@@ -1,7 +1,6 @@
 package org.example.service.impl;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.example.dto.converter.BookConverter;
 import org.example.dto.model.program.BookDto;
 import org.example.dto.model.request.BookCreateDto;
@@ -16,7 +15,6 @@ import org.example.service.intr.BookServiceIntr;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service

@@ -34,7 +34,6 @@ public class AuthorServiceImpl implements AuthorServiceIntr {
 
     @Override
     public List<BookDto> getAllBooks(long id) throws NotFoundException {
-//        return bookRepository.findByAuthorId(id).stream().map(BookConverter::toDto).toList();
         return authorRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Author with id " + id + " not found."))
                 .getBooks()
