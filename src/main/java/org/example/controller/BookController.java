@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import org.example.dto.converter.BookConverter;
 import org.example.dto.model.program.BookDto;
 import org.example.dto.model.request.BookCreateDto;
+import org.example.dto.model.request.BookUpdateDto;
 import org.example.exception.InvalidArgumentException;
 import org.example.exception.NotFoundException;
 import org.example.service.intr.BookServiceIntr;
@@ -36,6 +37,11 @@ public class BookController {
     @PostMapping("/")
     public BookDto createBook(BookCreateDto book) {
         return bookService.create(book);
+    }
+
+    @PutMapping("/")
+    public void updateBook(BookUpdateDto book) {
+        bookService.update(book);
     }
 
     @DeleteMapping("/{id}")

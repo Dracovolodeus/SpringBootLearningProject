@@ -2,6 +2,7 @@ package org.example.service.intr;
 
 import org.example.dto.model.program.BookDto;
 import org.example.dto.model.request.BookCreateDto;
+import org.example.dto.model.request.BookUpdateDto;
 import org.example.entity.BookEntity;
 import org.example.exception.InvalidArgumentException;
 import org.example.exception.NotFoundException;
@@ -15,6 +16,8 @@ public interface BookServiceIntr {
     public List<BookDto> getAll();
 
     public BookDto create(BookCreateDto book) throws NotFoundException, InvalidArgumentException;
+
+    public void update(BookUpdateDto book) throws NotFoundException;
 
     public void delete(long id) throws NotFoundException;
 }
