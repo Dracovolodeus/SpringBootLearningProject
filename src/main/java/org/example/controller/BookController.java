@@ -1,18 +1,15 @@
 package org.example.controller;
 
-import com.sun.net.httpserver.HttpsServer;
 import lombok.AllArgsConstructor;
-import org.example.dto.converter.BookConverter;
 import org.example.dto.model.program.BookDto;
 import org.example.dto.model.request.BookCreateDto;
 import org.example.dto.model.request.BookUpdateDto;
 import org.example.exception.InvalidArgumentException;
 import org.example.exception.NotFoundException;
-import org.example.service.intr.BookServiceIntr;
+import org.example.service.BookService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Book;
 import java.util.List;
 
 
@@ -20,7 +17,7 @@ import java.util.List;
 @RequestMapping("/api/v1/book")
 @AllArgsConstructor
 public class BookController {
-    private BookServiceIntr bookService;
+    private BookService bookService;
 
     @GetMapping("/{id}/")
     @ResponseStatus(HttpStatus.OK)

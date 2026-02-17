@@ -11,7 +11,7 @@ import org.example.exception.InvalidArgumentException;
 import org.example.exception.NotFoundException;
 import org.example.repository.AuthorRepository;
 import org.example.repository.BookRepository;
-import org.example.service.intr.BookServiceIntr;
+import org.example.service.BookService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
-public class BookServiceImpl implements BookServiceIntr {
+public class BookServiceImpl implements BookService {
     private final BookRepository bookRepository;
     private final AuthorRepository authorRepository;
 

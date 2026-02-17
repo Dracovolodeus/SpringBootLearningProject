@@ -1,4 +1,4 @@
-package org.example.service.intr;
+package org.example.service;
 
 import org.example.dto.model.program.BookDto;
 import org.example.dto.model.request.BookCreateDto;
@@ -8,7 +8,7 @@ import org.example.exception.NotFoundException;
 
 import java.util.List;
 
-public interface BookServiceIntr {
+public interface BookService {
 
     public BookDto get(long id) throws NotFoundException;
 

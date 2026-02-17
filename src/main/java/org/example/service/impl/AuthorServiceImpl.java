@@ -11,14 +11,14 @@ import org.example.entity.AuthorEntity;
 import org.example.exception.NotFoundException;
 import org.example.repository.AuthorRepository;
 import org.example.repository.BookRepository;
-import org.example.service.intr.AuthorServiceIntr;
+import org.example.service.AuthorService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class AuthorServiceImpl implements AuthorServiceIntr {
+public class AuthorServiceImpl implements AuthorService {
     private AuthorRepository authorRepository;
     private BookRepository bookRepository;
 

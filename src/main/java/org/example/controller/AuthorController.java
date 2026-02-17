@@ -5,7 +5,7 @@ import org.example.dto.model.program.AuthorDto;
 import org.example.dto.model.program.BookDto;
 import org.example.dto.model.request.AuthorCreateDto;
 import org.example.dto.model.request.AuthorUpdateDto;
-import org.example.service.intr.AuthorServiceIntr;
+import org.example.service.AuthorService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 public class AuthorController {
 
-    private AuthorServiceIntr authorService;
+    private AuthorService authorService;
 
     @GetMapping("/{id}/")
     public AuthorDto get(@PathVariable long id) {

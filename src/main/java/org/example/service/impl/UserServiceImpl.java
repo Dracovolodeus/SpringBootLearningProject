@@ -5,12 +5,12 @@ import org.example.dto.converter.UserConverter;
 import org.example.dto.model.program.UserDto;
 import org.example.exception.NotFoundException;
 import org.example.repository.UserRepository;
-import org.example.service.intr.UserServiceIntr;
+import org.example.service.UserService;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class UserServiceImpl implements UserServiceIntr {
+public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
