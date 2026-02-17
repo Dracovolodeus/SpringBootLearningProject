@@ -12,6 +12,7 @@ public class UserConverter {
                 .name(userEntity.getName())
                 .role(userEntity.getRole())
                 .refreshToken(userEntity.getRefreshToken())
+                .password(userEntity.getPassword())
                 .build();
     }
 
@@ -21,6 +22,7 @@ public class UserConverter {
                 .name(userDto.getName())
                 .role(userDto.getRole())
                 .refreshToken(userDto.getRefreshToken())
+                .password(userDto.getPassword())
                 .build();
     }
 }

@@ -13,5 +13,6 @@ public class UserDto {
     private long id;
     private String name;
     private String role;
+    private String password;
     private String refreshToken;
 }

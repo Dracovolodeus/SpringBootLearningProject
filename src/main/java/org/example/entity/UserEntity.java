@@ -18,6 +18,7 @@ public class UserEntity {
     public static final String COLUMN_ID_NAME = "id";
     public static final String COLUMN_NAME_NAME = "name";
     public static final String COLUMN_ROLE_NAME = "role";
+    public static final String COLUMN_PASSWORD_NAME = "password";
     public static final String COLUMN_REFRESH_TOKEN_NAME = "refresh_token";
 
     @Id
@@ -27,6 +28,9 @@ public class UserEntity {
 
     @Column(name = COLUMN_NAME_NAME, nullable = false)
     private String name;
+
+    @Column(name = COLUMN_PASSWORD_NAME, nullable = false)
+    private String password;
 
     @Column(name = COLUMN_ROLE_NAME, nullable = false)
     private String role;

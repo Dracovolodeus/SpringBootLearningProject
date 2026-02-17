@@ -20,6 +20,10 @@
                 <constraints nullable="false"/>
             </column>
 
+            <column name="password" type="VARCHAR(16384)">
+                <constraints nullable="false"/>
+            </column>
+
             <column name="role" type="VARCHAR(8)">
                 <constraints nullable="false"/>
             </column>
@@ -28,42 +32,5 @@
                 <constraints nullable="true"/>
             </column>
         </createTable>
-
-        <insert tableName="user">
-            <column name="name">Root</column>
-            <column name="role">admin</column>
-            <column name="refresh_token"/>
-        </insert>
-
-        <insert tableName="user">
-            <column name="name">FirstUserName</column>
-            <column name="role">user</column>
-            <column name="refresh_token"/>
-        </insert>
-
-        <insert tableName="user">
-            <column name="name">SecondUserName</column>
-            <column name="role">user</column>
-            <column name="refresh_token"/>
-        </insert>
-
-        <insert tableName="user">
-            <column name="name">ThirdUserName</column>
-            <column name="role">user</column>
-            <column name="refresh_token"/>
-        </insert>
-
-        <insert tableName="user">
-            <column name="name">FourthUserName</column>
-            <column name="role">user</column>
-            <column name="refresh_token"/>
-        </insert>
-
-        <insert tableName="user">
-            <column name="name">FifthUserName</column>
-            <column name="role">user</column>
-            <column name="refresh_token"/>
-        </insert>
-
     </changeSet>
 </databaseChangeLog>
