@@ -30,7 +30,37 @@
         </createTable>
 
         <insert tableName="user">
-            <column name="name">UserName</column>
+            <column name="name">Root</column>
+            <column name="role">admin</column>
+            <column name="refresh_token"/>
+        </insert>
+
+        <insert tableName="user">
+            <column name="name">FirstUserName</column>
+            <column name="role">user</column>
+            <column name="refresh_token"/>
+        </insert>
+
+        <insert tableName="user">
+            <column name="name">SecondUserName</column>
+            <column name="role">user</column>
+            <column name="refresh_token"/>
+        </insert>
+
+        <insert tableName="user">
+            <column name="name">ThirdUserName</column>
+            <column name="role">user</column>
+            <column name="refresh_token"/>
+        </insert>
+
+        <insert tableName="user">
+            <column name="name">FourthUserName</column>
+            <column name="role">user</column>
+            <column name="refresh_token"/>
+        </insert>
+
+        <insert tableName="user">
+            <column name="name">FifthUserName</column>
             <column name="role">user</column>
             <column name="refresh_token"/>
         </insert>
