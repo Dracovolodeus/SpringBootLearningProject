@@ -7,13 +7,13 @@
                    http://www.liquibase.org/xml/ns/dbchangelog-ext
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-    <changeSet id="2026-02-15--0001-author" author="Dracovolodeus">
+    <changeSet id="2026-02-15--0001-authors" author="Dracovolodeus">
         <preConditions>
             <not>
-                <tableExists tableName="author"/>
+                <tableExists tableName="authors"/>
             </not>
         </preConditions>
-        <createTable tableName = "author">
+        <createTable tableName = "authors">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints
                         primaryKey="true"
@@ -26,23 +26,23 @@
             </column>
         </createTable>
 
-        <insert tableName="author">
+        <insert tableName="authors">
             <column name="name">FirstAuthorName</column>
         </insert>
 
-        <insert tableName="author">
+        <insert tableName="authors">
             <column name="name">SecondAuthorName</column>
         </insert>
 
-        <insert tableName="author">
+        <insert tableName="authors">
             <column name="name">ThirdAuthorName</column>
         </insert>
 
-        <insert tableName="author">
+        <insert tableName="authors">
             <column name="name">FourthAuthorName</column>
         </insert>
 
-        <insert tableName="author">
+        <insert tableName="authors">
             <column name="name">FifthAuthorName</column>
         </insert>
 

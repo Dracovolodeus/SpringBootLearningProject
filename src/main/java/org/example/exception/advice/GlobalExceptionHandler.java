@@ -1,6 +1,7 @@
 package org.example.exception.advice;
 
 import org.example.exception.InvalidArgumentException;
+import org.example.exception.NameOccupiedException;
 import org.example.exception.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,4 +21,8 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<String>(e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
+    @ExceptionHandler
+    private ResponseEntity<String> handleNameOccupiedException(NameOccupiedException e) {
+        return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
+    }
 }

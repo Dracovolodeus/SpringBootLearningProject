@@ -19,29 +19,29 @@ import java.util.List;
 public class BookController {
     private BookService bookService;
 
-    @GetMapping("/{id}/")
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public BookDto getById(@PathVariable long id) throws NotFoundException, InvalidArgumentException {
         return bookService.get(id);
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     @ResponseStatus(HttpStatus.OK)
     public List<BookDto> getAll() {
         return bookService.getAll();
     }
 
-    @PostMapping("/")
-    public BookDto createBook(BookCreateDto book) {
+    @PostMapping("")
+    public BookDto createBook(@RequestBody BookCreateDto book) {
         return bookService.create(book);
     }
 
-    @PutMapping("/")
-    public BookDto updateBook(BookUpdateDto book) {
+    @PutMapping("")
+    public BookDto updateBook(@RequestBody BookUpdateDto book) {
         return bookService.update(book);
     }
 
-    @DeleteMapping("/{id}/")
+    @DeleteMapping("/{id}")
     public void deleteBook(@PathVariable long id) {
         bookService.delete(id);
     }

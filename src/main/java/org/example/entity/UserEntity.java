@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Table(name = UserEntity.TABLE_NAME)
 public class UserEntity {
 
-    public static final String TABLE_NAME = "user";
+    public static final String TABLE_NAME = "users";
     public static final String COLUMN_ID_NAME = "id";
     public static final String COLUMN_NAME_NAME = "name";
     public static final String COLUMN_ROLE_NAME = "role";
@@ -29,7 +29,7 @@ public class UserEntity {
     @Column(name = COLUMN_NAME_NAME, nullable = false)
     private String name;
 
-    @Column(name = COLUMN_PASSWORD_NAME, nullable = false)
+    @Column(name = COLUMN_PASSWORD_NAME, nullable = false, unique = true)
     private String password;
 
     @Column(name = COLUMN_ROLE_NAME, nullable = false)

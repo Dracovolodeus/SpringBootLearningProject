@@ -17,32 +17,32 @@ public class AuthorController {
 
     private AuthorService authorService;
 
-    @GetMapping("/{id}/")
+    @GetMapping("/{id}")
     public AuthorDto get(@PathVariable long id) {
         return authorService.get(id);
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<AuthorDto> getAll() {
         return authorService.getAll();
     }
 
-    @GetMapping("/{id}/books/")
+    @GetMapping("/{id}/books")
     public List<BookDto> getAllBooks(@PathVariable long id) {
         return authorService.getAllBooks(id);
     }
 
-    @PostMapping("/")
-    public AuthorDto create(AuthorCreateDto authorCreateDto) {
+    @PostMapping("")
+    public AuthorDto create(@RequestBody AuthorCreateDto authorCreateDto) {
         return authorService.create(authorCreateDto);
     }
 
-    @PutMapping("/")
-    public AuthorDto update(AuthorUpdateDto authorUpdateDto) {
+    @PutMapping("")
+    public AuthorDto update(@RequestBody AuthorUpdateDto authorUpdateDto) {
         return authorService.update(authorUpdateDto);
     }
 
-    @DeleteMapping("/{id}/")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable long id) {
         authorService.delete(id);
     }

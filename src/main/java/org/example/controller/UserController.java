@@ -2,11 +2,9 @@ package org.example.controller;
 
 import lombok.AllArgsConstructor;
 import org.example.dto.model.user.UserDto;
+import org.example.dto.model.user.UserRegisterDto;
 import org.example.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/user")
@@ -14,7 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     private UserService userService;
 
-    @GetMapping("/{id}/")
+    @PostMapping("/register")
+    public UserDto register(@RequestBody UserRegisterDto userRegisterDto) {
+        return userService.registerUser(userRegisterDto);
+    }
+
+    @GetMapping("/{id}")
     public UserDto getInfo(@PathVariable long id) {
         return userService.getInfo(id);
     }

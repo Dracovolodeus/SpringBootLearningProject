@@ -14,7 +14,8 @@ import java.util.List;
 @Entity
 @Table(name = AuthorEntity.TABLE_NAME)
 public class AuthorEntity {
-    public static final String TABLE_NAME = "author";
+    public static final String TABLE_NAME = "authors";
+    public static final String MAPPED_BY_BOOKS_NAME = "author";
     public static final String COLUMN_ID_NAME = "id";
     public static final String COLUMN_NAME_NAME = "name";
     public static final String COLUMN_BOOKS_NAME = "books";
@@ -27,6 +28,6 @@ public class AuthorEntity {
     private String name;
 
     @JsonIgnore
-    @OneToMany(mappedBy = TABLE_NAME, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = MAPPED_BY_BOOKS_NAME, fetch = FetchType.LAZY)
     private List<BookEntity> books;
 }

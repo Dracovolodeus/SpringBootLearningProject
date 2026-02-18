@@ -13,6 +13,7 @@ import org.example.repository.AuthorRepository;
 import org.example.repository.BookRepository;
 import org.example.service.BookService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,17 +25,20 @@ public class BookServiceImpl implements BookService {
     private final AuthorRepository authorRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public BookDto get(long id) throws NotFoundException {
         BookEntity book = bookRepository.findById(id).orElseThrow(() -> new NotFoundException("Book with id " + id + " not found."));
         return BookConverter.toDto(book);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<BookDto> getAll() {
         return bookRepository.findAll().stream().map(BookConverter::toDto).collect(Collectors.toList());
     }
 
     @Override
+    @Transactional
     public BookDto create(BookCreateDto bookDto) throws NotFoundException, InvalidArgumentException {
         if (bookDto.getName().isBlank()) {
             throw new InvalidArgumentException("Invalid book name.");
@@ -50,6 +54,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    @Transactional
     public BookDto update(BookUpdateDto bookDto) throws NotFoundException {
         BookEntity book = bookRepository.findById(bookDto.getId()).orElseThrow(() -> new NotFoundException("Book with id " + bookDto.getId() + " not found."));
         if (bookDto.getAuthorId() != book.getAuthor().getId())
@@ -62,6 +67,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    @Transactional
     public void delete(long id) throws NotFoundException {
         if (!bookRepository.existsById(id)) {
             throw new NotFoundException("Book with id " + id + " not found.");

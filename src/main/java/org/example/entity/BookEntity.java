@@ -13,7 +13,7 @@ import lombok.*;
 @Entity
 @Table(name = BookEntity.TABLE_NAME)
 public class BookEntity {
-    public static final String TABLE_NAME = "book";
+    public static final String TABLE_NAME = "books";
     public static final String COLUMN_ID_NAME = "id";
     public static final String COLUMN_YEAR_NAME = "publish_year";
     public static final String COLUMN_NAME_NAME = "name";

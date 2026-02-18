@@ -7,13 +7,13 @@
                    http://www.liquibase.org/xml/ns/dbchangelog-ext
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-    <changeSet id="2026-02-15-0002-book" author="Dracovolodeus">
+    <changeSet id="2026-02-15-0002-books" author="Dracovolodeus">
         <preConditions>
             <not>
-                <tableExists tableName="book"/>
+                <tableExists tableName="books"/>
             </not>
         </preConditions>
-        <createTable tableName = "book">
+        <createTable tableName = "books">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints
                         primaryKey="true"
@@ -31,50 +31,50 @@
 
             <column name="author_id" type="BIGINT">
                 <constraints
-                        foreignKeyName="fk_book_author"
-                        referencedTableName="author"
+                        foreignKeyName="fk_books_author"
+                        referencedTableName="authors"
                         referencedColumnNames="id"
                         deleteCascade="true"
                 />
             </column>
         </createTable>
 
-        <insert tableName="book">
+        <insert tableName="books">
             <column name="name">FirstBookName</column>
             <column name="description">DescriptionForFirstBook!</column>
             <column name="publish_year">2020</column>
             <column name="author_id">1</column>
         </insert>
 
-        <insert tableName="book">
+        <insert tableName="books">
             <column name="name">SecondBookName</column>
             <column name="description">DescriptionForSecondBook!</column>
             <column name="publish_year">2026</column>
             <column name="author_id">2</column>
         </insert>
 
-        <insert tableName="book">
+        <insert tableName="books">
             <column name="name">ThirdBookName</column>
             <column name="description">DescriptionForThirdBook!</column>
             <column name="publish_year">2021</column>
             <column name="author_id">2</column>
         </insert>
 
-        <insert tableName="book">
+        <insert tableName="books">
             <column name="name">FourthBookName</column>
             <column name="description">DescriptionForFourthBook!</column>
             <column name="publish_year">2000</column>
             <column name="author_id">3</column>
         </insert>
 
-        <insert tableName="book">
+        <insert tableName="books">
             <column name="name">FifthBookName</column>
             <column name="description">DescriptionForFifthBook!</column>
             <column name="publish_year">2010</column>
             <column name="author_id">4</column>
         </insert>
 
-        <insert tableName="book">
+        <insert tableName="books">
             <column name="name">SixthBookName</column>
             <column name="description">DescriptionForSixthBook!</column>
             <column name="publish_year">1983</column>
