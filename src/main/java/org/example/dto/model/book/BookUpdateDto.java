@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookUpdateDto {
-    private long id;
-    private long authorId;
-    private String name;
-    private String description;
-    private String year;
+  private long id;
+  private long authorId;
+  private String name;
+  private String description;
+  private String year;
 }

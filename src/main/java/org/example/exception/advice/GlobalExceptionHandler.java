@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler
-    public ResponseEntity<String> handleNotFoundException(NotFoundException e) {
-        return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
-    }
+  @ExceptionHandler
+  public ResponseEntity<String> handleNotFoundException(NotFoundException e) {
+    return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+  }
 
-    @ExceptionHandler
-    private ResponseEntity<String> handleInvalidArgumentException(InvalidArgumentException e) {
-        return new ResponseEntity<String>(e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
-    }
+  @ExceptionHandler
+  private ResponseEntity<String> handleInvalidArgumentException(InvalidArgumentException e) {
+    return new ResponseEntity<String>(e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
+  }
 
-    @ExceptionHandler
-    private ResponseEntity<String> handleNameOccupiedException(NameOccupiedException e) {
-        return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
-    }
+  @ExceptionHandler
+  private ResponseEntity<String> handleNameOccupiedException(NameOccupiedException e) {
+    return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
+  }
 }

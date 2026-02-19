@@ -11,10 +11,8 @@ import org.springframework.lang.Nullable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookCreateDto {
-    private long authorId;
-    private String name;
-    @Nullable
-    private String description;
-    @Nullable
-    private String year;
+  private long authorId;
+  private String name;
+  @Nullable private String description;
+  @Nullable private String year;
 }

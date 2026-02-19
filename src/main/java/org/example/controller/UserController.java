@@ -10,16 +10,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/user")
 @AllArgsConstructor
 public class UserController {
-    private UserService userService;
+  private UserService userService;
 
-    @PostMapping("/register")
-    public UserDto register(@RequestBody UserRegisterDto userRegisterDto) {
-        return userService.registerUser(userRegisterDto);
-    }
+  @PostMapping("/register")
+  public UserDto register(@RequestBody UserRegisterDto userRegisterDto) {
+    return userService.registerUser(userRegisterDto);
+  }
 
-    @GetMapping("/{id}")
-    public UserDto getInfo(@PathVariable long id) {
-        return userService.getInfo(id);
-    }
-
+  @GetMapping("/{id}")
+  public UserDto getInfo(@PathVariable long id) {
+    return userService.getInfo(id);
+  }
 }

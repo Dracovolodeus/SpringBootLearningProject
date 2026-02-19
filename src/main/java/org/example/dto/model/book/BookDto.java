@@ -11,9 +11,9 @@ import org.example.dto.model.author.AuthorDto;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookDto {
-    private long id;
-    private String name;
-    private String description;
-    private String year;
-    private AuthorDto author;
+  private long id;
+  private String name;
+  private String description;
+  private String year;
+  private AuthorDto author;
 }
