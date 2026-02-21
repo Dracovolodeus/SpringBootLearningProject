@@ -9,8 +9,6 @@ import org.example.exception.NotFoundException;
 
 public interface UserService {
 
-  public UserDto registerUser(UserRegisterDto user) throws NameOccupiedException;
-
   public UserDto getInfo(long id) throws NotFoundException;
 
   public UserDto update(UserUpdateDto userUpdateDto)

@@ -32,3 +32,11 @@ spring:
   liquibase:
     enabled: true
     change-log: classpath:db.changelog/rootChangeLog.xml
+
+app:
+  security:
+    jwt:
+      secret-key: FFzOJhBt0Sbn8TosjnYO9xPUr8Slc+ZGSI8U9YyDzL0=
+      access-exp: 10800000
+      refresh-exp: 2592000000
+

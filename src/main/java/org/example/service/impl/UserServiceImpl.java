@@ -19,23 +19,6 @@ import org.springframework.transaction.annotation.Transactional;
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
   private UserRepository userRepository;
-  private PasswordEncoder encoder;
-
-  @Override
-  @Transactional
-  public UserDto registerUser(UserRegisterDto user) throws NameOccupiedException {
-    if (userRepository.existsByName(user.getName())) {
-      throw new NameOccupiedException("User with name " + user.getName() + " exists.");
-    }
-    UserEntity userEntity =
-        UserEntity.builder()
-            .name(user.getName())
-            .password(encoder.encode(user.getPassword()))
-            .role("user")
-            .build();
-    userRepository.save(userEntity);
-    return UserConverter.toDto(userEntity);
-  }
 
   @Override
   @Transactional(readOnly = true)
