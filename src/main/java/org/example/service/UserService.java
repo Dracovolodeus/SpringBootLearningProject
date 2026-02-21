@@ -1,10 +1,8 @@
 package org.example.service;
 
 import org.example.dto.model.user.UserDto;
-import org.example.dto.model.user.UserRegisterDto;
 import org.example.dto.model.user.UserUpdateDto;
 import org.example.exception.InvalidArgumentException;
-import org.example.exception.NameOccupiedException;
 import org.example.exception.NotFoundException;
 
 public interface UserService {

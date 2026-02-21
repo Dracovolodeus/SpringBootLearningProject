@@ -2,7 +2,6 @@ package org.example.controller;
 
 import lombok.AllArgsConstructor;
 import org.example.dto.model.user.UserDto;
-import org.example.dto.model.user.UserRegisterDto;
 import org.example.service.UserService;
 import org.springframework.web.bind.annotation.*;
 

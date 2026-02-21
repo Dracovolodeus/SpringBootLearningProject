@@ -7,8 +7,6 @@ import lombok.NonNull;
 @Data
 @AllArgsConstructor
 public class LoginDto {
-    @NonNull
-    private String name;
-    @NonNull
-    private String password;
+  @NonNull private String name;
+  @NonNull private String password;
 }

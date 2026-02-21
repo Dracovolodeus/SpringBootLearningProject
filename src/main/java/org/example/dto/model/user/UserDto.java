@@ -14,8 +14,6 @@ public class UserDto {
   private long id;
   private String name;
   private String role;
-  @JsonIgnore
-  private String password;
-  @JsonIgnore
-  private String refreshToken;
+  @JsonIgnore private String password;
+  @JsonIgnore private String refreshToken;
 }

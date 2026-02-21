@@ -24,58 +24,54 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class AuthServiceImpl implements AuthService {
-    private JwtService jwtService;
-    private UserRepository userRepository;
-    private AuthenticationManager authenticationManager;
-    private UserDetailsServiceImpl userDetailsService;
-    private PasswordEncoder encoder;
+  private JwtService jwtService;
+  private UserRepository userRepository;
+  private AuthenticationManager authenticationManager;
+  private UserDetailsServiceImpl userDetailsService;
+  private PasswordEncoder encoder;
 
-    @Override
-    @Transactional
-    public UserDto registerUser(UserRegisterDto user) throws NameOccupiedException {
-        if (userRepository.existsByName(user.getName())) {
-            throw new NameOccupiedException("User with name " + user.getName() + " exists.");
-        }
-        UserEntity userEntity =
-                UserEntity.builder()
-                        .name(user.getName())
-                        .password(encoder.encode(user.getPassword()))
-                        .role("user")
-                        .build();
-        userRepository.save(userEntity);
-        return UserConverter.toDto(userEntity);
+  @Override
+  @Transactional
+  public UserDto registerUser(UserRegisterDto user) throws NameOccupiedException {
+    if (userRepository.existsByName(user.getName())) {
+      throw new NameOccupiedException("User with name " + user.getName() + " exists.");
     }
+    UserEntity userEntity =
+        UserEntity.builder()
+            .name(user.getName())
+            .password(encoder.encode(user.getPassword()))
+            .role("user")
+            .build();
+    userRepository.save(userEntity);
+    return UserConverter.toDto(userEntity);
+  }
 
-    public JwtPair login(LoginDto loginDto) {
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginDto.getName(), loginDto.getPassword())
-        );
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        return jwtService.generateJwtPair(authentication);
-    }
+  public JwtPair login(LoginDto loginDto) {
+    Authentication authentication =
+        authenticationManager.authenticate(
+            new UsernamePasswordAuthenticationToken(loginDto.getName(), loginDto.getPassword()));
+    SecurityContextHolder.getContext().setAuthentication(authentication);
+    return jwtService.generateJwtPair(authentication);
+  }
 
-    public JwtPair refreshToken(RefreshTokenRequest request) {
+  public JwtPair refreshToken(RefreshTokenRequest request) {
 
     String refreshToken = request.getRefreshToken();
-    if(!jwtService.isRefreshToken(refreshToken)) {
-        throw new IllegalArgumentException("Invalid refresh token");
+    if (!jwtService.isRefreshToken(refreshToken)) {
+      throw new IllegalArgumentException("Invalid refresh token");
     }
 
     String user = jwtService.extractNameFromToken(refreshToken);
     UserDetails userDetails = (UserDetails) userDetailsService.loadUserByUsername(user);
 
     if (userDetails == null) {
-        throw new IllegalArgumentException("User not found");
+      throw new IllegalArgumentException("User not found");
     }
 
     UsernamePasswordAuthenticationToken authentication =
-            new UsernamePasswordAuthenticationToken(
-                    userDetails,
-                    null,
-                    userDetails.getAuthorities()
-            );
+        new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
 
     String accessToken = jwtService.generateAccessToken(authentication);
     return new JwtPair(accessToken, refreshToken);
-}
+  }
 }
