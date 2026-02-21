@@ -38,3 +38,6 @@ build/
 
 ### MacOS ###
 .DS_Store
+
+### Project ###
+src/main/resources/certs

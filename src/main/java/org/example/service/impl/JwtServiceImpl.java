@@ -17,14 +17,20 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 @Service
 public class JwtServiceImpl implements JwtService {
-    @Value("${app.security.jwt.secret-key}")
-    private String jwtSecret;
+    @Value("${app.security.jwt.private-key}")
+    private RSAPrivateKey jwtPrivateKey;
+
+    @Value("${app.security.jwt.public-key}")
+    private RSAPublicKey jwtPublicKey;
+
     @Value("${app.security.jwt.access-exp}")
     private long jwtAccessExp;
     @Value("${app.security.jwt.refresh-exp}")
@@ -65,7 +71,7 @@ public class JwtServiceImpl implements JwtService {
             return false;
         }
         try {
-            Jwts.parser().verifyWith(getSignInKey()).build().parseSignedClaims(token);
+            Jwts.parser().verifyWith(jwtPublicKey).build().parseSignedClaims(token);
             return true;
         } catch (SignatureException | MalformedJwtException | ExpiredJwtException | UnsupportedJwtException | IllegalArgumentException e) {
             return false;
@@ -75,7 +81,7 @@ public class JwtServiceImpl implements JwtService {
     @Override
     public boolean isValidToken(String token, UserDetails userDetails) {
         return Jwts.parser()
-                .verifyWith(getSignInKey())
+                .verifyWith(jwtPublicKey)
                 .build()
                 .parseSignedClaims(token)
                 .getPayload() != null;
@@ -84,7 +90,7 @@ public class JwtServiceImpl implements JwtService {
     @Override
     public boolean isRefreshToken(String token) {
         Map<String, Object> claims = Jwts.parser()
-                .verifyWith(getSignInKey())
+                .verifyWith(jwtPublicKey)
                 .build()
                 .parseSignedClaims(token)
                 .getPayload();
@@ -94,9 +100,9 @@ public class JwtServiceImpl implements JwtService {
     @Override
     public String extractNameFromToken(String token) {
         return Jwts.parser()
-                .verifyWith(getSignInKey())
+                .verifyWith(jwtPublicKey)
                 .build()
-                .parseSignedClaims(token)
+                .parseClaimsJws(token)
                 .getPayload()
                 .getSubject();
     }
@@ -119,12 +125,7 @@ public class JwtServiceImpl implements JwtService {
                 .claims(claims)
                 .issuedAt(nowDate)
                 .expiration(expDate)
-                .signWith(getSignInKey())
+                .signWith(jwtPrivateKey, SignatureAlgorithm.RS256)
                 .compact();
-    }
-
-    private SecretKey getSignInKey() {
-        byte[] bytes = Decoders.BASE64.decode(jwtSecret);
-        return Keys.hmacShaKeyFor(bytes);
     }
 }

@@ -28,7 +28,7 @@
                 <constraints nullable="false"/>
             </column>
 
-            <column name="refresh_token" type="VARCHAR(512)">
+            <column name="refresh_token" type="VARCHAR(32768)">
                 <constraints nullable="true"/>
             </column>
         </createTable>

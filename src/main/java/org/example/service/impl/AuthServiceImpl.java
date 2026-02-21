@@ -57,7 +57,6 @@ public class AuthServiceImpl implements AuthService {
     public JwtPair refreshToken(RefreshTokenRequest request) {
 
     String refreshToken = request.getRefreshToken();
-    // check if it is valid refresh token
     if(!jwtService.isRefreshToken(refreshToken)) {
         throw new IllegalArgumentException("Invalid refresh token");
     }
